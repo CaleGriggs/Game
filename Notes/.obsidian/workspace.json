@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "d81fca701a16d7d6",
+    "type": "split",
+    "children": [
+      {
+        "id": "8fa1107054812fd3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4f24c9c1f5cae47b",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Game Notes/Main Plan.canvas",
+                "viewState": {
+                  "x": 2441.5,
+                  "y": -1186,
+                  "zoom": -0.13815441256805383
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Main Plan"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7d5314a842e14546",
+    "type": "split",
+    "children": [
+      {
+        "id": "e0e9ad5738020182",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8c102315f67202e5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "63e2a6243f65069d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0b6528e35a134834",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "af21fc68ecedb362",
+    "type": "split",
+    "children": [
+      {
+        "id": "b61ea825572a876d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bb94cd13ea0f4f42",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Clocked In/Clocked In Notes.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Clocked In Notes"
+            }
+          },
+          {
+            "id": "5d2c78b3ede12df1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Clocked In/Clocked In Notes.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Clocked In Notes"
+            }
+          },
+          {
+            "id": "647875c9bbbad1d0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b8cb6c708dc1c9c1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Clocked In/Clocked In Notes.canvas",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Clocked In Notes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "4f24c9c1f5cae47b",
+  "lastOpenFiles": [
+    "Game Notes/Game Modes.canvas",
+    "Clocked In/Map Select.canvas",
+    "Clocked In/Map Maker.canvas",
+    "Clocked In/Main Plan.canvas",
+    "Untitled",
+    "Clocked In/Items.canvas",
+    "Clocked In/Game Modes.canvas"
+  ]
+}

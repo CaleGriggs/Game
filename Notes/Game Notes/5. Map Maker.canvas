@@ -1,0 +1,11 @@
+{
+	"nodes":[
+		{"id":"fa52231a0239f7ef","type":"text","text":"Rooms/hallways, multiple sizes\nSpawn Locations\nBases For CTF\nItem Locations\nStyle\nLighting\nZones\nEnemy Locations for custom arcade trials?\nParkour Maps?","x":-185,"y":-75,"width":370,"height":300,"color":"#006602"},
+		{"id":"215eeffbb368a952","type":"text","text":"Map/Map Maker","x":-125,"y":-220,"width":250,"height":60,"color":"#006602"},
+		{"id":"0cc47c083dd277f8","x":226,"y":-175,"width":754,"height":195,"type":"text","text":"- Map Pieces have snapping points where they can connect to each other\n- Map Pieces are various sizes and shapes with clear accessways\n- Maps need to adhere to at least one game mode\n\t- Death match for default, just needs spawn locations\n- No floating/inaccessible map pieces"},
+		{"id":"a623bec13cfe29ee","x":226,"y":75,"width":554,"height":305,"type":"text","text":"Steam Workshop: \n- Easy share/download\n- Built-in review system\nMap Code:\n- Might be too difficult\n- Can share anywhere\n \n How does online play work? Does host pick map and if you connect you automatically download map?"}
+	],
+	"edges":[
+		{"id":"fd87e31b02abce06","fromNode":"215eeffbb368a952","fromSide":"bottom","toNode":"fa52231a0239f7ef","toSide":"top"}
+	]
+}

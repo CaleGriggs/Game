@@ -1,0 +1,41 @@
+{
+	"nodes":[
+		{"id":"bc385f9e0a65aad5","type":"text","text":"Shoot: Primary Fire, Secondary Fire\nReload\nDrop\nAim Down Sight\nRefill Ammo By gun type","x":-582,"y":-61,"width":332,"height":261,"color":"1"},
+		{"id":"e7aa7314477767fd","type":"text","text":"Items","x":30,"y":-600,"width":250,"height":60,"color":"#0300c7"},
+		{"id":"f81f108f0d4ed843","type":"text","text":"Melee & Throwables","x":-412,"y":-280,"width":250,"height":60,"color":"1"},
+		{"id":"5d9402258fb613ce","type":"text","text":"Sword\nBat\nAxe\nShuriken\nThrowing Star\nLaser Sword\nChainsaw\nBrick\nTNT\nRemote Mine\nProximity Mine\nTimed Mine\nVocal Distraction Grenade\nSmoke Grenade/mine(volumetric)","x":-220,"y":-61,"width":250,"height":441,"color":"1"},
+		{"id":"007584da7c44ce98","type":"text","text":"Pistol\nDouble Barrel\nAssault Shotgun\nBlunderbuss\nUzi\nTommy Gun\nMinigun\nSniper\nm16\nRevolver\nGrenade Launcher\nRocket Launcher\nCrossbow\nBow and arrow\nScifi Handgun\nScifi Autorifle\nMauser Pistol\nRaygun Carbine\nTaser Gun (Ragdoll effect)?\nMagic Wand?(have you seen my mana?)","x":-1030,"y":-69,"width":360,"height":669,"color":"1"},
+		{"id":"cc04b05d676030b6","type":"text","text":"Health","x":-95,"y":-390,"width":250,"height":60,"color":"#3c48ec"},
+		{"id":"b90ed7bcf2873254","type":"text","text":"Armor","x":170,"y":-390,"width":250,"height":60,"color":"#3c48ec"},
+		{"id":"de78ef93e4fdf444","type":"text","text":"Ammo","x":450,"y":-390,"width":250,"height":60,"color":"#3c48ec"},
+		{"id":"65755f545c4e7209","type":"text","text":"Flag/Objective","x":730,"y":-390,"width":250,"height":60,"color":"#3c48ec"},
+		{"id":"6703b3c6f8fadbf2","type":"text","text":"Can Drop\nScore Points when Collected","x":730,"y":-246,"width":300,"height":166,"color":"#3c48ec"},
+		{"id":"af7e34b4f5c0038f","type":"text","text":"Small, Medium, Large","x":169,"y":-269,"width":250,"height":60,"color":"#3c48ec"},
+		{"id":"93164e47b3de7abf","type":"text","text":"Weapons","x":-541,"y":-570,"width":250,"height":60,"color":"1"},
+		{"id":"51d2f1c5730cb2f2","type":"text","text":"Types","x":-541,"y":-450,"width":250,"height":60,"color":"1"},
+		{"id":"f6447d23baf4fca6","type":"text","text":"Guns","x":-735,"y":-310,"width":250,"height":60,"color":"1"},
+		{"id":"bc684c9ccce5eb33","type":"text","text":"Types","x":-860,"y":-180,"width":250,"height":60,"color":"1"},
+		{"id":"4a9367ed629526c3","type":"text","text":"Actions","x":-582,"y":-180,"width":250,"height":60,"color":"1"},
+		{"id":"f6c6ef91c3b8b04f","type":"text","text":"Small, Medium, Large","x":-95,"y":-269,"width":250,"height":60,"color":"#3c48ec"},
+		{"id":"30c2b7a52a0dcb69","type":"text","text":"Refill all ammo Types","x":450,"y":-269,"width":250,"height":60,"color":"#3c48ec"}
+	],
+	"edges":[
+		{"id":"01f6d49c7832f15b","fromNode":"4a9367ed629526c3","fromSide":"bottom","toNode":"bc385f9e0a65aad5","toSide":"top"},
+		{"id":"5f5fff0a7e114651","fromNode":"e7aa7314477767fd","fromSide":"bottom","toNode":"cc04b05d676030b6","toSide":"top"},
+		{"id":"05588070e52ab99b","fromNode":"e7aa7314477767fd","fromSide":"bottom","toNode":"93164e47b3de7abf","toSide":"top"},
+		{"id":"a3c95a24d60f270d","fromNode":"e7aa7314477767fd","fromSide":"bottom","toNode":"b90ed7bcf2873254","toSide":"top"},
+		{"id":"8f9446178020cf64","fromNode":"e7aa7314477767fd","fromSide":"bottom","toNode":"de78ef93e4fdf444","toSide":"top"},
+		{"id":"b541a6281534f72b","fromNode":"e7aa7314477767fd","fromSide":"bottom","toNode":"65755f545c4e7209","toSide":"top"},
+		{"id":"d66b4c851b0444f2","fromNode":"f81f108f0d4ed843","fromSide":"bottom","toNode":"5d9402258fb613ce","toSide":"top"},
+		{"id":"6406ab3f28e83e23","fromNode":"51d2f1c5730cb2f2","fromSide":"bottom","toNode":"f81f108f0d4ed843","toSide":"top"},
+		{"id":"74b6f045be27c1c2","fromNode":"bc684c9ccce5eb33","fromSide":"bottom","toNode":"007584da7c44ce98","toSide":"top"},
+		{"id":"e60e6b31745044a0","fromNode":"cc04b05d676030b6","fromSide":"bottom","toNode":"f6c6ef91c3b8b04f","toSide":"top"},
+		{"id":"35fec107d22e1eb3","fromNode":"b90ed7bcf2873254","fromSide":"bottom","toNode":"af7e34b4f5c0038f","toSide":"top"},
+		{"id":"71f2ecef33b3081c","fromNode":"de78ef93e4fdf444","fromSide":"bottom","toNode":"30c2b7a52a0dcb69","toSide":"top"},
+		{"id":"d78ad32c9cf619c4","fromNode":"65755f545c4e7209","fromSide":"bottom","toNode":"6703b3c6f8fadbf2","toSide":"top"},
+		{"id":"e66640ac5355fbb4","fromNode":"93164e47b3de7abf","fromSide":"bottom","toNode":"51d2f1c5730cb2f2","toSide":"top"},
+		{"id":"f0a0d54c3d8c98ef","fromNode":"51d2f1c5730cb2f2","fromSide":"bottom","toNode":"f6447d23baf4fca6","toSide":"top"},
+		{"id":"90055e7e7d21300b","fromNode":"f6447d23baf4fca6","fromSide":"bottom","toNode":"4a9367ed629526c3","toSide":"top"},
+		{"id":"0c07baaedeae3436","fromNode":"f6447d23baf4fca6","fromSide":"bottom","toNode":"bc684c9ccce5eb33","toSide":"top"}
+	]
+}
