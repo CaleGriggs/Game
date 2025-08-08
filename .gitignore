@@ -12,6 +12,9 @@ export_presets.cfg
 *.godot/*.import
 *.godot/*.conversion.log
 
+# Notes
+Notes/
+
 # System-specific
 .DS_Store
 Thumbs.db
