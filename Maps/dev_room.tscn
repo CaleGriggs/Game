@@ -1,68 +1,98 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba7cnx3j86gtk"]
+[gd_scene load_steps=7 format=3 uid="uid://ba7cnx3j86gtk"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_2gprq"]
-[ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://addons/CSGStairMaker3D.tscn" id="2_3yskv"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Resources/proto_controller/proto_controller.tscn" id="1_2gprq"]
+[ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://Resources/CSGStairMaker3D.tscn" id="2_3yskv"]
+[ext_resource type="PackedScene" uid="uid://cc2cj3x7fayme" path="res://Resources/Bagjective/Bagjective.tscn" id="3_l27sm"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2gprq"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l27sm"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.194145, 0.186395, 0.177395, 1)
+ground_horizon_color = Color(0.194145, 0.186395, 0.177395, 1)
 
-[sub_resource type="Sky" id="Sky_3yskv"]
-sky_material = SubResource("ProceduralSkyMaterial_2gprq")
+[sub_resource type="Sky" id="Sky_aabhr"]
+sky_material = SubResource("ProceduralSkyMaterial_l27sm")
 
-[sub_resource type="Environment" id="Environment_lnnrp"]
-background_mode = 2
-sky = SubResource("Sky_3yskv")
+[sub_resource type="Environment" id="Environment_ky56f"]
+background_mode = 1
+sky = SubResource("Sky_aabhr")
 tonemap_mode = 2
+ssao_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_bounce_feedback = 0.73
+sdfgi_cascades = 5
+sdfgi_min_cell_size = 0.1
+sdfgi_cascade0_distance = 6.4
+glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lnnrp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.995998, -0.0811685, 0.0374232, 0.0820638, -0.664544, 0.742729, -0.0354169, 0.742827, 0.668546, 13.9803, 33.8251, 0.665327)
-shadow_enabled = true
+environment = SubResource("Environment_ky56f")
 
 [node name="ProtoController" parent="." instance=ExtResource("1_2gprq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.47313, 0.100757, -49.0327)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -5.14726, 0.100757, -2.72665)
 
 [node name="Map Geometry" type="Node3D" parent="."]
 
-[node name="Floor" type="CSGBox3D" parent="Map Geometry"]
+[node name="Outside Floor" type="CSGCombiner3D" parent="Map Geometry"]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.102811, 0, -1.51087)
 use_collision = true
 size = Vector3(47.1393, 0.2, 6.19904)
 
-[node name="Floor2" type="CSGBox3D" parent="Map Geometry"]
+[node name="Floor2" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1561, 0, -46.9499)
 use_collision = true
 size = Vector3(10.9752, 0.2, 7.86987)
 
-[node name="Floor7" type="CSGBox3D" parent="Map Geometry"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1561, 3.38689, -46.9499)
-use_collision = true
-size = Vector3(10.9752, 0.2, 7.86987)
-
-[node name="Floor6" type="CSGBox3D" parent="Map Geometry"]
+[node name="Floor6" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1561, 0, -23.8798)
 use_collision = true
 size = Vector3(10.9752, 0.2, 38.5803)
 
-[node name="Floor5" type="CSGBox3D" parent="Map Geometry"]
+[node name="Floor5" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.71038, 0, -46.9923)
 use_collision = true
 size = Vector3(11.9548, 0.2, 7.79977)
 
-[node name="Floor3" type="CSGBox3D" parent="Map Geometry"]
+[node name="Floor3" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50293, 0, -7.41187)
 use_collision = true
 size = Vector3(13.6623, 0.2, 5.82373)
 
-[node name="Floor4" type="CSGBox3D" parent="Map Geometry"]
+[node name="Floor4" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2219, 0, -8.9559)
 use_collision = true
 size = Vector3(5.12018, 0.2, 21.109)
+
+[node name="Floor7" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26.5408, -1.22215, -28.2668)
+use_collision = true
+size = Vector3(14.7843, 0.253491, 4.68192)
+
+[node name="Floor8" type="CSGBox3D" parent="Map Geometry/Outside Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.00592, -1.22215, -48.5722)
+use_collision = true
+size = Vector3(4.41761, 0.253491, 16.2944)
+
+[node name="Stairs" parent="Map Geometry/Outside Floor" instance=ExtResource("2_3yskv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26.7262, -1.33542, -21.3698)
+use_collision = true
+size = Vector3(3.82969, 2.8688, 4.69803)
+num_stairs = 12
+
+[node name="Stairs2" parent="Map Geometry/Outside Floor" instance=ExtResource("2_3yskv")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -1.17885, -1.33542, -48.3987)
+use_collision = true
+size = Vector3(3.82969, 2.8688, 4.09028)
+num_stairs = 12
+
+[node name="Ceiling" type="CSGBox3D" parent="Map Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1561, 3.38689, -46.9499)
+use_collision = true
+size = Vector3(10.9752, 0.2, 7.86987)
 
 [node name="Pillar" type="CSGCylinder3D" parent="Map Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2445, 3.46764, -4.64634)
@@ -208,49 +238,45 @@ size = Vector3(0.710663, 3.31787, 1.50574)
 [node name="Interior" type="Node3D" parent="Map Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.40617)
 
-[node name="Floor7" type="CSGBox3D" parent="Map Geometry/Interior"]
+[node name="Interior Floor" type="CSGCombiner3D" parent="Map Geometry/Interior"]
+use_collision = true
+
+[node name="Floor7" type="CSGBox3D" parent="Map Geometry/Interior/Interior Floor"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.46623, 3.34477, -11.8478)
 use_collision = true
 size = Vector3(3.43287, 0.2, 6.05608)
 
-[node name="Floor6" type="CSGBox3D" parent="Map Geometry/Interior"]
+[node name="Floor6" type="CSGBox3D" parent="Map Geometry/Interior/Interior Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3851, 3.34477, -13.6668)
 use_collision = true
 size = Vector3(3.82094, 0.2, 7.07076)
 
-[node name="Floor8" type="CSGBox3D" parent="Map Geometry/Interior"]
+[node name="Floor8" type="CSGBox3D" parent="Map Geometry/Interior/Interior Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.621033, 3.34477, -13.712)
 use_collision = true
 size = Vector3(3.63078, 0.2, 7.16247)
 
-[node name="CSGStairMaker3D" parent="Map Geometry/Interior" instance=ExtResource("2_3yskv")]
+[node name="Stairs" parent="Map Geometry/Interior/Interior Floor" instance=ExtResource("2_3yskv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.383, 1.77201, -19.114)
 use_collision = true
 size = Vector3(3.82969, 3.346, 3.82534)
 num_stairs = 12
 
-[node name="CSGStairMaker3D2" parent="Map Geometry/Interior" instance=ExtResource("2_3yskv")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -1.17885, -1.33542, -39.9925)
+[node name="Floor11" type="CSGBox3D" parent="Map Geometry/Interior/Interior Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.82857, 3.34477, -11.751)
 use_collision = true
-size = Vector3(3.82969, 2.8688, 4.09028)
-num_stairs = 12
+size = Vector3(3.23792, 0.2, 11.3453)
+
+[node name="Floor5" type="CSGBox3D" parent="Map Geometry/Interior/Interior Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53668, 0, -13.2387)
+use_collision = true
+size = Vector3(13.5203, 0.2, 22.6596)
 
 [node name="CSGStairMaker3D4" parent="Map Geometry/Interior" instance=ExtResource("2_3yskv")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.78892, -3.99637, -25.8789)
 use_collision = true
 size = Vector3(6.23223, 5.80092, 2.60178)
 num_stairs = 20
-
-[node name="CSGStairMaker3D3" parent="Map Geometry/Interior" instance=ExtResource("2_3yskv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -26.7262, -1.33542, -12.9636)
-use_collision = true
-size = Vector3(3.82969, 2.8688, 4.69803)
-num_stairs = 12
-
-[node name="Floor11" type="CSGBox3D" parent="Map Geometry/Interior"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.82857, 3.34477, -11.751)
-use_collision = true
-size = Vector3(3.23792, 0.2, 11.3453)
 
 [node name="Wall13" type="CSGBox3D" parent="Map Geometry/Interior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.265, 2.74234, -14.5417)
@@ -272,22 +298,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.233
 operation = 2
 size = Vector3(2.30969, 2.56033, 1.65429)
 
-[node name="Floor5" type="CSGBox3D" parent="Map Geometry/Interior"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53668, 0, -13.2387)
-use_collision = true
-size = Vector3(13.5203, 0.2, 22.6596)
-
-[node name="Floor9" type="CSGBox3D" parent="Map Geometry/Interior"]
+[node name="Ceiling" type="CSGBox3D" parent="Map Geometry/Interior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.54468, 6.67957, -13.1443)
 use_collision = true
 size = Vector3(13.5043, 0.2, 22.8482)
 
-[node name="Floor10" type="CSGBox3D" parent="Map Geometry/Interior"]
+[node name="Ceiling2" type="CSGBox3D" parent="Map Geometry/Interior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9975, 6.67957, -6.69232)
 use_collision = true
 size = Vector3(11.4567, 0.2, 21.2449)
 
-[node name="Floor12" type="CSGBox3D" parent="Map Geometry/Interior"]
+[node name="Ceiling3" type="CSGBox3D" parent="Map Geometry/Interior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.69641, 6.67957, -24.0535)
 use_collision = true
 size = Vector3(11.4567, 0.2, 21.2449)
@@ -312,228 +333,218 @@ operation = 2
 calculate_tangents = false
 size = Vector3(6.98973, 0.964081, 7.75473)
 
-[node name="Stairs Going Up" parent="Map Geometry/Interior/Room" instance=ExtResource("2_3yskv")]
+[node name="Middle Step Under Stairs" type="CSGBox3D" parent="Map Geometry/Interior/Room/Room Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.53558, -0.552863, -8.84565)
+use_collision = true
+size = Vector3(2.33704, 0.362695, 2.25381)
+
+[node name="Middle Step Under Stairs2" type="CSGBox3D" parent="Map Geometry/Interior/Room/Room Floor"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.53558, -0.719144, -9.06377)
+use_collision = true
+size = Vector3(2.33704, 0.253491, 2.25381)
+
+[node name="Stairs" parent="Map Geometry/Interior/Room" instance=ExtResource("2_3yskv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.009, 1.772, -5.596)
 use_collision = true
 size = Vector3(4.17306, 3.346, 3.346)
 num_stairs = 12
 
-[node name="Balcony" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0182629, 3.34477, -14.4251)
 use_collision = true
 size = Vector3(13.4851, 0.2, 11.3127)
 
-[node name="Balcony3" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Ceiling" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.24396, 3.34477, -25.8609)
 use_collision = true
 size = Vector3(9.58258, 0.2, 33.7354)
 
-[node name="Balcony4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Ceiling2" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.51122, 3.34477, -33.5708)
 use_collision = true
 size = Vector3(5.88449, 0.2, 6.85819)
 
-[node name="Balcony2" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Ceiling3" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.3096, 3.34477, -19.8264)
 use_collision = true
 size = Vector3(2.68255, 0.2, 13.1857)
 
-[node name="Middle Step Under Stairs" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.49014, -0.870889, -7.84546)
-use_collision = true
-size = Vector3(2.33704, 0.362695, 2.25381)
-
-[node name="Middle Step Under Stairs2" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.49014, -1.03717, -8.06358)
-use_collision = true
-size = Vector3(2.33704, 0.253491, 2.25381)
-
-[node name="Middle Step Under Stairs3" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor2" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0193214, -1.22215, -14.5172)
 use_collision = true
 size = Vector3(13.3811, 0.253491, 11.3773)
 
-[node name="Middle Step Under Stairs4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor3" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.10425, -1.22215, -25.8599)
 use_collision = true
 size = Vector3(9.41637, 0.253491, 31.0967)
 
-[node name="Middle Step Under Stairs9" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.2238, -6.15312, -20.8987)
 use_collision = true
 size = Vector3(6.26355, 0.253491, 5.97152)
 
-[node name="Middle Step Under Stairs12" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor5" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15.8112, -6.15312, -26.0311)
 use_collision = true
 size = Vector3(4.03317, 0.253491, 8.79657)
 
-[node name="Middle Step Under Stairs14" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor6" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.6554, -6.15312, -26.7162)
 use_collision = true
 size = Vector3(4.03317, 0.253491, 7.70102)
 
-[node name="Middle Step Under Stairs15" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor7" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.625534, -6.15312, -26.037)
 use_collision = true
 size = Vector3(4.03317, 0.253491, 6.34258)
 
-[node name="Middle Step Under Stairs16" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Ceiling5" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.625534, -2.84973, -26.0243)
 use_collision = true
 size = Vector3(4.03317, 0.253491, 6.31718)
 
-[node name="Middle Step Under Stairs13" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.8762, -6.15312, -30.8689)
+[node name="Floor9" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.8762, -6.15312, -31.6113)
 use_collision = true
-size = Vector3(5.6477, 0.253491, 8.41358)
+size = Vector3(7.13244, 0.253491, 8.41358)
 
-[node name="Middle Step Under Stairs17" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Ceiling4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.876, -2.85, -30.702)
 use_collision = true
 size = Vector3(5.31493, 0.253491, 8.41358)
 
-[node name="Middle Step Under Stairs11" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor8" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.3008, -6.15312, -15.3551)
 use_collision = true
 size = Vector3(4.87961, 0.253491, 5.40626)
 
-[node name="Middle Step Under Stairs10" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Ceiling6" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.0555, -1.96844, -20.0852)
 use_collision = true
 size = Vector3(4.63647, 0.253491, 3.68474)
 
-[node name="Middle Step Under Stairs8" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor10" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.95162, -1.22215, -33.5521)
 use_collision = true
 size = Vector3(5.98684, 0.253491, 7.59979)
 
-[node name="Middle Step Under Stairs6" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Floor11" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.51325, -1.22191, -19.813)
 use_collision = true
 size = Vector3(2.71806, 0.253491, 3.66352)
 
-[node name="Middle Step Under Stairs5" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.92448, -1.22215, -34.0873)
-use_collision = true
-size = Vector3(4.41761, 0.253491, 16.2944)
-
-[node name="Middle Step Under Stairs7" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8.61036, -1.22215, -13.7819)
-use_collision = true
-size = Vector3(14.7843, 0.253491, 4.68192)
-
-[node name="Under Stairs Wall" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0600986, 0.836382, -7.77513)
 use_collision = true
 size = Vector3(0.18457, 4.8171, 11.1275)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Under Stairs Wall"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.734535, -0.667618, 3.42287)
 operation = 2
 calculate_tangents = false
 size = Vector3(2.25305, 5.05368, 2.76941)
 
-[node name="Under Stairs Wall2" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall2" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58567, 1.08616, -15.9794)
 use_collision = true
 size = Vector3(0.18457, 4.39214, 8.04407)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Under Stairs Wall2"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.734535, -1.08154, 2.62038)
 operation = 2
 calculate_tangents = false
 size = Vector3(1.94032, 4.22583, 2.76941)
 
-[node name="Under Stairs Wall4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall3" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.20477, 1.16317, -21.124)
 use_collision = true
 size = Vector3(0.18457, 4.54617, 2.53623)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Under Stairs Wall4"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall3"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0823288, -1.08154, 0.0129242)
 operation = 2
 calculate_tangents = false
 size = Vector3(1.94032, 4.22583, 1.13568)
 
-[node name="Under Stairs Wall6" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.3158, 1.12501, -21.1224)
 use_collision = true
 size = Vector3(0.185, 4.62371, 2.819)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Under Stairs Wall6"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall4"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0823288, -1.08154, 0.0129242)
 operation = 2
 calculate_tangents = false
 size = Vector3(1.94032, 4.22583, 1.13568)
 
-[node name="Under Stairs Wall7" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall5" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.102581, 1.12471, -33.6896)
 use_collision = true
 size = Vector3(0.185, 4.6231, 6.03429)
 
-[node name="Wall Cutout2" type="CSGBox3D" parent="Map Geometry/Interior/Room/Under Stairs Wall7"]
+[node name="Wall Cutout2" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall5"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0823288, -1.08154, -0.449097)
 operation = 2
 calculate_tangents = false
 size = Vector3(1.94032, 4.22583, 1.13568)
 
-[node name="Under Stairs Wall8" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall6" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -6.81103, 1.12471, -33.5235)
 use_collision = true
 size = Vector3(0.185, 4.6231, 6.03966)
 
-[node name="Under Stairs Wall9" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall7" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 19.3468, 2.82342, -30.2191)
 use_collision = true
 size = Vector3(0.254609, 8.02053, 4.21757)
 
-[node name="Under Stairs Wall10" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall8" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 30.9087, 1.66623, -30.3916)
 use_collision = true
 size = Vector3(0.6, 3.556, 4.563)
 
-[node name="Under Stairs Wall14" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall9" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.193, 1.66518, -28.529)
 use_collision = true
 size = Vector3(0.910996, 3.55189, 7.10928)
 
-[node name="Under Stairs Wall15" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall10" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.9204, 1.66721, -28.4654)
 use_collision = true
 size = Vector3(0.791, 3.54858, 0.832746)
 
-[node name="Under Stairs Wall16" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall11" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.1921, 1.30594, -32.0938)
 use_collision = true
 size = Vector3(0.791, 4.27112, 0.686)
 
-[node name="Under Stairs Wall11" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall12" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 30.909, 1.594, -35.756)
 use_collision = true
 size = Vector3(0.6, 3.682, 1.225)
 
-[node name="Under Stairs Wall12" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall13" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.9831, 1.61861, -36.291)
 use_collision = true
 size = Vector3(0.185, 3.64504, 10.7431)
 
-[node name="Under Stairs Wall13" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall14" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 41.249, 1.63448, -32.4909)
 use_collision = true
 size = Vector3(0.185, 3.6133, 7.81038)
 
-[node name="Under Stairs Wall5" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall40" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.84137, 1.08616, -18.2601)
 use_collision = true
 size = Vector3(0.18457, 4.39214, 5.80276)
 
-[node name="Under Stairs Wall3" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
+[node name="Wall41" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0311298, 1.08616, -14.3581)
 use_collision = true
 size = Vector3(3.43478, 4.39214, 5.80021)
 
-[node name="Under Stair Stairs" parent="Map Geometry/Interior/Room" instance=ExtResource("2_3yskv")]
+[node name="Stairs2" parent="Map Geometry/Interior/Room" instance=ExtResource("2_3yskv")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.48273, -1.57269, -7.74142)
 use_collision = true
 size = Vector3(4.17306, 3.346, 2.25356)
@@ -565,13 +576,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.706
 use_collision = true
 size = Vector3(1.79492, 5.38414, 4.74554)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Map Geometry/Interior/Room/Wall29"]
+[node name="Wall Cutout" type="CSGCylinder3D" parent="Map Geometry/Interior/Room/Wall29"]
 transform = Transform3D(-8.74228e-08, 1, -3.55271e-15, 0, 5.32907e-15, 1, 1, 8.74228e-08, -1.55294e-22, 0, -0.338492, 0)
 operation = 2
 radius = 1.92236
 sides = 14
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall29"]
+[node name="Wall Cutout2" type="CSGBox3D" parent="Map Geometry/Interior/Room/Wall29"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0318909, -1.52863, 0.0001477)
 operation = 2
 size = Vector3(2.054, 2.379, 3.84419)
@@ -670,9 +681,9 @@ use_collision = true
 size = Vector3(0.18457, 4.18833, 3.75335)
 
 [node name="Wall34" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15.1211, -4.32152, -30.9216)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15.1211, -4.32152, -31.6648)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 5.74997)
+size = Vector3(0.18457, 4.18833, 7.23631)
 
 [node name="Wall38" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15.3047, -4.24678, -22.5595)
@@ -685,12 +696,12 @@ use_collision = true
 size = Vector3(0.18457, 4.33782, 6.05383)
 
 [node name="Wall35" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 6.6046, -4.32152, -32.133)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 6.6046, -4.32152, -32.8391)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 3.15719)
+size = Vector3(0.18457, 4.18833, 4.56932)
 
 [node name="Wall36" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6551, -4.32152, -33.7418)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6551, -4.32152, -35.2034)
 use_collision = true
 size = Vector3(0.18457, 4.18833, 9.08584)
 
@@ -719,90 +730,90 @@ operation = 2
 calculate_tangents = false
 size = Vector3(6.98973, 0.964081, 7.75473)
 
-[node name="Stairs Going Up" parent="Map Geometry/Interior/Room2" instance=ExtResource("2_3yskv")]
+[node name="Under Stair Stairs" parent="Map Geometry/Interior/Room2/Room Floor" instance=ExtResource("2_3yskv")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.52817, -1.25466, -8.74161)
+use_collision = true
+size = Vector3(4.17306, 3.346, 2.25356)
+num_stairs = 21
+
+[node name="Stairs" parent="Map Geometry/Interior/Room2" instance=ExtResource("2_3yskv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.009, 1.772, -5.596)
 use_collision = true
 size = Vector3(4.17306, 3.346, 3.346)
 num_stairs = 12
 
-[node name="Balcony" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Floor" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0182629, 3.34477, -14.4251)
 use_collision = true
 size = Vector3(13.4851, 0.2, 11.3127)
 
-[node name="Balcony2" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Ceiling" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.047121, 3.34477, -24.6147)
 use_collision = true
 size = Vector3(6.96524, 0.2, 11.255)
 
-[node name="Middle Step Under Stairs" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Floor2" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.49014, -0.870889, -7.84546)
 use_collision = true
 size = Vector3(2.33704, 0.362695, 2.25381)
 
-[node name="Middle Step Under Stairs2" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Floor3" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.49014, -1.03717, -8.06358)
 use_collision = true
 size = Vector3(2.33704, 0.253491, 2.25381)
 
-[node name="Middle Step Under Stairs3" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Floor4" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0193214, -1.22215, -14.5172)
 use_collision = true
 size = Vector3(13.3811, 0.253491, 11.3773)
 
-[node name="Middle Step Under Stairs4" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Floor5" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.252807, -1.22215, -24.3928)
 use_collision = true
 size = Vector3(6.49982, 0.253491, 10.9103)
 
-[node name="Under Stairs Wall" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Wall" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0600986, 0.836382, -7.77513)
 use_collision = true
 size = Vector3(0.18457, 4.8171, 11.1275)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room2/Under Stairs Wall"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room2/Wall"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.734535, -0.667618, 3.42287)
 operation = 2
 calculate_tangents = false
 size = Vector3(2.25305, 5.05368, 2.76941)
 
-[node name="Under Stairs Wall2" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Wall2" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.58567, 1.08616, -15.9794)
 use_collision = true
 size = Vector3(0.18457, 4.39214, 8.04407)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room2/Under Stairs Wall2"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room2/Wall2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.734535, -1.08154, 2.62038)
 operation = 2
 calculate_tangents = false
 size = Vector3(1.94032, 4.22583, 2.76941)
 
-[node name="Under Stairs Wall4" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Wall3" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.20477, 1.08616, -21.124)
 use_collision = true
 size = Vector3(0.18457, 4.39214, 2.53623)
 
-[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room2/Under Stairs Wall4"]
+[node name="Wall Cutout" type="CSGBox3D" parent="Map Geometry/Interior/Room2/Wall3"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0823288, -1.08154, 0.0129242)
 operation = 2
 calculate_tangents = false
 size = Vector3(1.94032, 4.22583, 1.13568)
 
-[node name="Under Stairs Wall5" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Wall4" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.84137, 1.08616, -18.2601)
 use_collision = true
 size = Vector3(0.18457, 4.39214, 5.80276)
 
-[node name="Under Stairs Wall3" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
+[node name="Wall5" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0311298, 1.08616, -14.3581)
 use_collision = true
 size = Vector3(3.43478, 4.39214, 5.80021)
-
-[node name="Under Stair Stairs" parent="Map Geometry/Interior/Room2" instance=ExtResource("2_3yskv")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 3.48273, -1.57269, -7.74142)
-use_collision = true
-size = Vector3(4.17306, 3.346, 2.25356)
-num_stairs = 21
 
 [node name="Wall15" type="CSGBox3D" parent="Map Geometry/Interior/Room2"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0389366, 4.93582, -11.1852)
@@ -893,3 +904,89 @@ size = Vector3(0.18457, 4.38251, 7.04075)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0393848, 1.08568, -27.6941)
 use_collision = true
 size = Vector3(0.18457, 4.38251, 10.887)
+
+[node name="CTB" type="Node3D" parent="."]
+
+[node name="Bases" type="Node3D" parent="CTB"]
+
+[node name="Red Base" type="Node3D" parent="CTB/Bases"]
+
+[node name="Red Bag" parent="CTB/Bases/Red Base" instance=ExtResource("3_l27sm")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, -9.76366, -5.9119, -48.1678)
+Team_Color = Color(0.85098, 0, 0.0862745, 1)
+
+[node name="Green" type="Node3D" parent="CTB/Bases"]
+
+[node name="Green Bag" parent="CTB/Bases/Green" instance=ExtResource("3_l27sm")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, -9.17287, 0.219319, -14.3782)
+Team_Color = Color(0, 0.85098, 0, 1)
+
+[node name="Blue" type="Node3D" parent="CTB/Bases"]
+
+[node name="Blue Bag" parent="CTB/Bases/Blue" instance=ExtResource("3_l27sm")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 3.5138, -1.00611, -8.74992)
+Team_Color = Color(0, 0.365519, 0.821054, 1)
+
+[node name="Yellow" type="Node3D" parent="CTB/Bases"]
+
+[node name="Yellow Bag" parent="CTB/Bases/Yellow" instance=ExtResource("3_l27sm")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 17.8638, 0.219319, -46.5865)
+Team_Color = Color(1, 0.921569, 0, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.92926, -0.165375, 0.330343, -0.147314, 0.654154, 0.741877, -0.338783, -0.738061, 0.583517, -7.25407, 3.59581, -11.6533)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 32.1
+spot_angle_attenuation = 0.965936
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96453, 3.78915, -5.89205)
+light_energy = 1.152
+light_indirect_energy = 1.525
+shadow_enabled = true
+omni_range = 22.5397
+omni_attenuation = 0.048
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00821, 5.21293, -3.37973)
+light_energy = 1.152
+light_indirect_energy = 1.525
+shadow_enabled = true
+omni_range = 10.7512
+omni_attenuation = 0.048
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1099, 5.46499, -6.94475)
+light_energy = 1.152
+light_indirect_energy = 1.525
+shadow_enabled = true
+omni_range = 9.18655
+omni_attenuation = 0.048
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.198, 3.78915, -34.7477)
+light_energy = 1.152
+light_indirect_energy = 1.525
+shadow_enabled = true
+omni_range = 9.80332
+omni_attenuation = 0.048
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.957, 3.00142, -45.8266)
+light_energy = 0.917
+light_indirect_energy = 1.525
+shadow_enabled = true
+omni_range = 16.9501
+omni_attenuation = 0.048
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5006, 5.14316, -21.6137)
+light_energy = 1.152
+light_indirect_energy = 1.525
+shadow_enabled = true
+omni_range = 8.8463
+omni_attenuation = 0.048
