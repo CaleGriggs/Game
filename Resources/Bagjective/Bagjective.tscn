@@ -46,6 +46,7 @@ transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
 script = ExtResource("1_ti2ln")
 Bag_Rotation = NodePath("Bag Mesh")
 Ring_Rotaion = NodePath("Ring Mesh")
+Area_Collision = NodePath("Area3D")
 
 [node name="Ring Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_qobq0")
@@ -58,5 +59,6 @@ script = ExtResource("1_l4q1t")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="Bag Collision" type="CollisionShape3D" parent="Area3D"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.154154, 0)
 shape = SubResource("CylinderShape3D_ti2ln")

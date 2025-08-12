@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba7cnx3j86gtk"]
+[gd_scene load_steps=8 format=3 uid="uid://ba7cnx3j86gtk"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://Resources/proto_controller/proto_controller.tscn" id="1_2gprq"]
 [ext_resource type="PackedScene" uid="uid://bak8ltrhbmlv5" path="res://Resources/CSGStairMaker3D.tscn" id="2_3yskv"]
+[ext_resource type="Script" uid="uid://cqrncctyj533j" path="res://Game Modes/ctb.gd" id="3_aabhr"]
 [ext_resource type="PackedScene" uid="uid://cc2cj3x7fayme" path="res://Resources/Bagjective/Bagjective.tscn" id="3_l27sm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l27sm"]
@@ -30,9 +31,362 @@ glow_enabled = true
 environment = SubResource("Environment_ky56f")
 
 [node name="ProtoController" parent="." instance=ExtResource("1_2gprq")]
-transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -5.14726, 0.100757, -2.72665)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 21.4233, 0.100757, -46.0573)
+Team_Color = Color(0, 0.85098, 0, 1)
 
 [node name="Map Geometry" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="Map Geometry"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.767093, -0.635703, 0.0863123, -0.158604, -0.057557, 0.985663, -0.621621, -0.769785, -0.144977, -24.7287, 6.55886, -3.3244)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 71.1058
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.779873, -0.625535, -0.0224736, -0.0733881, -0.127033, 0.98918, -0.621621, -0.769785, -0.144977, 0.44723, 6.55886, -3.30021)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 76.1355
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D12" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.767093, -0.635703, 0.0863123, -0.158604, -0.057557, 0.985663, -0.621621, -0.769785, -0.144977, 1.668, 6.55886, -46.9489)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 71.1058
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D13" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.671174, -0.525511, -0.522841, 0.382592, -0.358544, 0.85151, -0.634939, -0.771547, -0.0395888, -17.4306, 4.4183, -48.6627)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 48.1942
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.778698, -0.627351, -0.00779693, 0.011161, 0.00142598, 0.999937, -0.6273, -0.778736, 0.00811225, -17.7881, 6.55886, -14.2149)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 84.1346
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D14" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.778698, -0.627351, -0.00779693, 0.011161, 0.00142598, 0.999937, -0.6273, -0.778736, 0.00811226, -6.16851, 6.55886, -14.4366)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 84.1346
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D15" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.778698, -0.627351, -0.00779693, 0.011161, 0.00142598, 0.999937, -0.6273, -0.778736, 0.00811226, -5.5322, 6.55886, -26.6838)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 84.1346
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D16" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782679, 0.186934, 0.23188, 0.954614, -0.597086, -0.744833, 0.297846, -15.8086, 2.5301, -30.9899)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 70.1713
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D17" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782681, 0.186934, 0.23188, 0.954614, -0.597086, -0.744833, 0.297846, -17.731, 2.5301, -30.9899)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 70.1713
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D18" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782683, 0.186934, 0.23188, 0.954614, -0.597086, -0.744833, 0.297846, -19.7061, 2.5301, -30.9899)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 70.1713
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D19" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -16.8527, 3.22138, -24.2098)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D20" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -18.5848, 3.22138, -40.2159)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 85.2357
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D30" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -10.4246, 3.15481, -34.3702)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 89.99
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D31" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -0.432723, -2.01193, -34.3702)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D32" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -4.34508, -2.91925, -47.5785)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D33" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -12.2699, -2.91925, -48.2945)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D34" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -20.1377, -2.91925, -41.5264)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D35" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -17.2428, -2.91925, -38.8211)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D21" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -7.71842, 3.22138, -40.2159)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 87.1337
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D22" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782686, -0.00561063, -0.00824637, 0.99995, -0.625639, -0.780049, -0.0099433, -28.0075, 3.22138, -40.2048)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 85.6969
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D23" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, -21.2215, 3.37649, -47.8549)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 88.1982
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D24" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, 3.07487, 3.37249, -8.72417)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D25" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, 10.1391, 3.37249, -8.72417)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D26" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782685, -0.0148694, -0.0197901, 0.999694, -0.625487, -0.779842, -0.0247413, 7.04095, 3.37249, -22.897)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 75.2394
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D27" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782686, -0.204788, -0.256517, 0.944596, -0.5912, -0.736712, -0.328236, 8.26523, 2.56036, -16.875)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 65.7814
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D28" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782695, -0.204788, -0.256517, 0.944596, -0.5912, -0.736712, -0.328236, 6.88445, 2.56036, -16.875)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 65.7814
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D29" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.780093, -0.625664, -0.000782693, -0.204788, -0.256517, 0.944596, -0.5912, -0.736712, -0.328236, 4.79078, 2.56036, -16.875)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 65.7814
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.778698, -0.627351, -0.00779693, 0.011161, 0.00142598, 0.999937, -0.6273, -0.778736, 0.00811226, 6.68216, 6.55886, -32.6097)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.0024
+spot_attenuation = 0.43
+spot_angle = 84.1346
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.778698, -0.627351, -0.00779693, 0.011161, 0.00142599, 0.999937, -0.6273, -0.778736, 0.00811226, 18.5636, 3.48914, -46.5289)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 8.07327
+spot_attenuation = 0.43
+spot_angle = 84.1346
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.767093, -0.635703, 0.0863123, -0.158604, -0.057557, 0.985663, -0.621621, -0.769785, -0.144977, -11.2681, 6.55886, -3.49667)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 71.1058
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(-0.539598, -0.750746, -0.381069, -0.378986, -0.187576, 0.906193, -0.751801, 0.633399, -0.183306, 13.4937, 6.55886, -3.7362)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 14.1063
+spot_attenuation = 0.43
+spot_angle = 77.2131
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(-0.558671, -0.765935, -0.318168, -0.411819, -0.076811, 0.908023, -0.719925, 0.638314, -0.272514, 13.495, 6.55886, -42.0013)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 11.951
+spot_attenuation = 0.43
+spot_angle = 71.1058
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.549843, 0.733998, 0.398647, -0.565419, -0.024213, 0.824448, 0.614796, -0.67872, 0.401703, 11.6597, 6.55886, -43.5214)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.3083
+spot_attenuation = 0.43
+spot_angle = 47.2715
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(-0.576701, -0.790494, -0.206241, -0.122188, -0.166151, 0.978501, -0.807766, 0.589502, -0.000769073, 12.907, 6.55886, -23.9672)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 17.2234
+spot_attenuation = 0.43
+spot_angle = 71.1058
+spot_angle_attenuation = 0.965936
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Map Geometry/Lights"]
+transform = Transform3D(0.792464, -0.609918, -0.00048198, -0.534531, -0.694895, 0.481038, -0.293729, -0.380948, -0.876699, -27.416, 4.18477, -35.4938)
+light_energy = 1.485
+light_indirect_energy = 1.205
+shadow_enabled = true
+spot_range = 28.2773
+spot_attenuation = 0.43
+spot_angle = 71.1058
+spot_angle_attenuation = 0.965936
 
 [node name="Outside Floor" type="CSGCombiner3D" parent="Map Geometry"]
 use_collision = true
@@ -111,6 +465,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3969, 3.50242, -4.64634)
 use_collision = true
 radius = 1.0
 height = 6.9
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Map Geometry/Pillar6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.548222, -2.15364, -1.29972)
+operation = 2
+size = Vector3(1, 4.73627, 1)
 
 [node name="Pillar3" type="CSGCylinder3D" parent="Map Geometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6312, 3.45177, -4.64634)
@@ -390,14 +749,14 @@ use_collision = true
 size = Vector3(4.03317, 0.253491, 8.79657)
 
 [node name="Floor6" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.6554, -6.15312, -26.7162)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.93776, -6.15312, -26.7162)
 use_collision = true
 size = Vector3(4.03317, 0.253491, 7.70102)
 
 [node name="Floor7" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.625534, -6.15312, -26.037)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.04931, -6.15312, -27.3318)
 use_collision = true
-size = Vector3(4.03317, 0.253491, 6.34258)
+size = Vector3(4.03317, 0.253491, 8.93215)
 
 [node name="Ceiling5" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.625534, -2.84973, -26.0243)
@@ -405,14 +764,14 @@ use_collision = true
 size = Vector3(4.03317, 0.253491, 6.31718)
 
 [node name="Floor9" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.8762, -6.15312, -31.6113)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.50102, -6.15312, -32.8455)
 use_collision = true
-size = Vector3(7.13244, 0.253491, 8.41358)
+size = Vector3(9.60089, 0.253491, 11.1639)
 
 [node name="Ceiling4" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.876, -2.85, -30.702)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.29672, -2.85, -33.3081)
 use_collision = true
-size = Vector3(5.31493, 0.253491, 8.41358)
+size = Vector3(10.5271, 0.253491, 11.5721)
 
 [node name="Floor8" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17.3008, -6.15312, -15.3551)
@@ -661,29 +1020,29 @@ use_collision = true
 size = Vector3(0.18457, 5.29438, 9.46852)
 
 [node name="Wall30" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.622648, -4.32152, -22.9402)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.786179, -4.32152, -22.9402)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 4.02973)
+size = Vector3(0.18457, 4.18833, 6.84738)
 
 [node name="Wall32" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.622648, -4.32152, -29.0917)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.07457, -4.32152, -31.6819)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 4.02973)
+size = Vector3(0.18457, 4.18833, 4.15439)
 
 [node name="Wall31" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.30883, -4.32152, -26.0242)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -4.17896, -4.32152, -27.2916)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 6.31236)
+size = Vector3(0.18457, 4.18833, 8.8471)
 
 [node name="Wall33" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2.68992, -4.32152, -27.31)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -0.0804367, -4.32152, -28.5245)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 3.75335)
+size = Vector3(0.18457, 4.18833, 6.18234)
 
 [node name="Wall34" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15.1211, -4.32152, -31.6648)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15.1211, -4.32152, -32.8733)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 7.23631)
+size = Vector3(0.18457, 4.18833, 9.65331)
 
 [node name="Wall38" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 15.3047, -4.24678, -22.5595)
@@ -696,19 +1055,19 @@ use_collision = true
 size = Vector3(0.18457, 4.33782, 6.05383)
 
 [node name="Wall35" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 6.6046, -4.32152, -32.8391)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3.84117, -4.32152, -34.0952)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 4.56932)
+size = Vector3(0.18457, 4.18833, 7.08154)
 
 [node name="Wall36" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.6551, -4.32152, -35.2034)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.52324, -4.32152, -37.7077)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 9.08584)
+size = Vector3(0.18457, 4.18833, 11.3496)
 
 [node name="Wall37" type="CSGBox3D" parent="Map Geometry/Interior/Room"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.04852, -4.32152, -28.0996)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.70218, -4.32152, -28.0996)
 use_collision = true
-size = Vector3(0.18457, 4.18833, 4.78849)
+size = Vector3(0.18457, 4.18833, 7.48118)
 
 [node name="Room2" type="Node3D" parent="Map Geometry/Interior"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.83076, 0, -24.6488)
@@ -905,88 +1264,49 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.039
 use_collision = true
 size = Vector3(0.18457, 4.38251, 10.887)
 
-[node name="CTB" type="Node3D" parent="."]
+[node name="CTB" type="Node" parent="."]
+script = ExtResource("3_aabhr")
 
 [node name="Bases" type="Node3D" parent="CTB"]
 
-[node name="Red Base" type="Node3D" parent="CTB/Bases"]
+[node name="Green Base" type="Node3D" parent="CTB/Bases"]
+unique_name_in_owner = true
 
-[node name="Red Bag" parent="CTB/Bases/Red Base" instance=ExtResource("3_l27sm")]
-transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, -9.76366, -5.9119, -48.1678)
-Team_Color = Color(0.85098, 0, 0.0862745, 1)
-
-[node name="Green" type="Node3D" parent="CTB/Bases"]
-
-[node name="Green Bag" parent="CTB/Bases/Green" instance=ExtResource("3_l27sm")]
-transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, -9.17287, 0.219319, -14.3782)
+[node name="Green Bag" parent="CTB/Bases/Green Base" instance=ExtResource("3_l27sm")]
+unique_name_in_owner = true
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 18.8058, 0.219319, -49.3149)
 Team_Color = Color(0, 0.85098, 0, 1)
 
-[node name="Blue" type="Node3D" parent="CTB/Bases"]
+[node name="Spawns" type="Node3D" parent="CTB/Bases/Green Base"]
 
-[node name="Blue Bag" parent="CTB/Bases/Blue" instance=ExtResource("3_l27sm")]
+[node name="Red Base" type="Node3D" parent="CTB/Bases"]
+unique_name_in_owner = true
+
+[node name="Red Bag" parent="CTB/Bases/Red Base" instance=ExtResource("3_l27sm")]
+unique_name_in_owner = true
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, -11.931, -5.9119, -49.6303)
+Team_Color = Color(0.85098, 0, 0.0862745, 1)
+
+[node name="Spawns" type="Node3D" parent="CTB/Bases/Red Base"]
+
+[node name="Blue Base" type="Node3D" parent="CTB/Bases"]
+unique_name_in_owner = true
+
+[node name="Blue Bag" parent="CTB/Bases/Blue Base" instance=ExtResource("3_l27sm")]
+unique_name_in_owner = true
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 3.5138, -1.00611, -8.74992)
 Team_Color = Color(0, 0.365519, 0.821054, 1)
 
-[node name="Yellow" type="Node3D" parent="CTB/Bases"]
+[node name="Spawns" type="Node3D" parent="CTB/Bases/Blue Base"]
 
-[node name="Yellow Bag" parent="CTB/Bases/Yellow" instance=ExtResource("3_l27sm")]
+[node name="Yellow Base" type="Node3D" parent="CTB/Bases"]
+unique_name_in_owner = true
+
+[node name="Yellow Bag" parent="CTB/Bases/Yellow Base" instance=ExtResource("3_l27sm")]
+unique_name_in_owner = true
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 17.8638, 0.219319, -46.5865)
 Team_Color = Color(1, 0.921569, 0, 1)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.92926, -0.165375, 0.330343, -0.147314, 0.654154, 0.741877, -0.338783, -0.738061, 0.583517, -7.25407, 3.59581, -11.6533)
-light_energy = 1.485
-light_indirect_energy = 1.205
-shadow_enabled = true
-spot_range = 11.951
-spot_attenuation = 0.43
-spot_angle = 32.1
-spot_angle_attenuation = 0.965936
+[node name="Spawns" type="Node3D" parent="CTB/Bases/Yellow Base"]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96453, 3.78915, -5.89205)
-light_energy = 1.152
-light_indirect_energy = 1.525
-shadow_enabled = true
-omni_range = 22.5397
-omni_attenuation = 0.048
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.00821, 5.21293, -3.37973)
-light_energy = 1.152
-light_indirect_energy = 1.525
-shadow_enabled = true
-omni_range = 10.7512
-omni_attenuation = 0.048
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1099, 5.46499, -6.94475)
-light_energy = 1.152
-light_indirect_energy = 1.525
-shadow_enabled = true
-omni_range = 9.18655
-omni_attenuation = 0.048
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.198, 3.78915, -34.7477)
-light_energy = 1.152
-light_indirect_energy = 1.525
-shadow_enabled = true
-omni_range = 9.80332
-omni_attenuation = 0.048
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.957, 3.00142, -45.8266)
-light_energy = 0.917
-light_indirect_energy = 1.525
-shadow_enabled = true
-omni_range = 16.9501
-omni_attenuation = 0.048
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5006, 5.14316, -21.6137)
-light_energy = 1.152
-light_indirect_energy = 1.525
-shadow_enabled = true
-omni_range = 8.8463
-omni_attenuation = 0.048
+[node name="Items" type="Node3D" parent="CTB"]

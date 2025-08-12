@@ -1,27 +1,51 @@
 extends Node3D
 
-
 @export var rotation_speed: float = 60.0
 @export var bob_height: float = 0.02
 @export var bob_speed: float = .5
 
 @export var Bag_Rotation: NodePath
 @export var Ring_Rotaion: NodePath
+@export var Area_Collision: NodePath
 
 @export var Team_Color: Color = Color(255,255,255)
 
 @export var Hidden : bool = false
 
+var Ring_Mesh = MeshInstance3D
+var Bag_Mesh = MeshInstance3D
 
-func _ready():
-	var Ring_Mesh = $"Ring Mesh"
-	var Bag_Mesh = $"Bag Mesh"
-	
-	
+func _hide_bag() -> void:
 	if Hidden:
 		Bag_Mesh.visible = false
 	else:
 		Bag_Mesh.visible = true	
+
+func _on_enter(Body: Node3D) -> void:
+		
+	#Taking
+	if Body.Team_Color != Team_Color and Body.Has_Bag == false:
+		Body.Has_Bag = true
+		Body.Bag_Node = self
+		Hidden = true
+		_hide_bag()
+		
+	#Scoring
+	if Body.Team_Color == Team_Color and Body.Has_Bag == true:
+		
+		#Body.Team.Score += 1
+		Body.Bag_Node.Hidden = false
+		Body.Bag_Node._hide_bag()
+		Body.Has_Bag = false
+		Hidden = false
+		_hide_bag()
+
+func _ready():
+	Ring_Mesh = $"Ring Mesh"
+	Bag_Mesh = $"Bag Mesh"
+	var Area = get_node(Area_Collision)
+	
+	Area.body_entered.connect(_on_enter)
 	
 	var Bag_Material = Bag_Mesh.get_surface_override_material(0)
 	if Bag_Material == null:
@@ -34,10 +58,6 @@ func _ready():
 		Ring_Material = StandardMaterial3D.new()
 		Ring_Mesh.set_surface_override_material(0, Ring_Material)
 	Ring_Material.albedo_color = Team_Color
-	
-
-	
-	
 	
 	var child = get_node(Bag_Rotation)
 	if child:

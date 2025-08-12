@@ -1,6 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://bs72ogkvdd7d6"]
 
-[ext_resource type="Script" uid="uid://brrt6oqkrx4yg" path="res://addons/proto_controller/proto_controller.gd" id="1_g2uji"]
+[ext_resource type="Script" uid="uid://brrt6oqkrx4yg" path="res://Resources/proto_controller/proto_controller.gd" id="1_g2uji"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -9,35 +13,41 @@ albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
-height = 1.8
-
-[node name="ProtoController" type="CharacterBody3D"]
+[node name="Controller" type="CharacterBody3D"]
 script = ExtResource("1_g2uji")
-can_sprint = true
-base_speed = 6.5
-jump_velocity = 6.0
-sprint_speed = 15.0
-input_left = "Move_Left"
-input_right = "Move_Right"
-input_forward = "Move_Up"
-input_back = "Move_Down"
-input_jump = "Jump"
-input_sprint = "Sprint"
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
-[node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+[node name="World Model" type="Node3D" parent="."]
+unique_name_in_owner = true
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Mesh" type="MeshInstance3D" parent="World Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+layers = 2
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+skeleton = NodePath("../..")
+
+[node name="Head" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="CameraSmooth" type="Node3D" parent="Head"]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
+unique_name_in_owner = true
+cull_mask = 1048573
 fov = 90.0
+
+[node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454849, -0.70151)
+target_position = Vector3(0, -0.55, 0)
+
+[node name="StairsBelowRayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+target_position = Vector3(0, -0.6, 0)
