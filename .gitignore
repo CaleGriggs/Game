@@ -15,6 +15,12 @@ export_presets.cfg
 # Notes
 Notes/
 
+# Addons
+addons/
+
+README.md
+LICENSE
+
 # System-specific
 .DS_Store
 Thumbs.db

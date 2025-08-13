@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=4 uid="uid://cc2cj3x7fayme"]
 
-[ext_resource type="Script" uid="uid://befnlplhq1bye" path="res://Resources/Bagjective/Bagjective_Spin.gd" id="1_l4q1t"]
-[ext_resource type="Script" uid="uid://d38hkggl0l72q" path="res://Resources/Bagjective/BagJective.gd" id="1_ti2ln"]
-[ext_resource type="Script" uid="uid://crx4djm6rdryr" path="res://Resources/Bagjective/BagJectiveRing.gd" id="2_8njam"]
+[ext_resource type="Script" uid="uid://befnlplhq1bye" path="res://Resources/Bag Base/Bag Base_Spin.gd" id="1_l4q1t"]
+[ext_resource type="Script" uid="uid://d38hkggl0l72q" path="res://Resources/Bag Base/Bag Base.gd" id="1_ti2ln"]
+[ext_resource type="Script" uid="uid://crx4djm6rdryr" path="res://Resources/Bag Base/Bag Base_Ring.gd" id="2_8njam"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8njam"]
 emission_energy_multiplier = 0.83
@@ -41,7 +41,7 @@ _surfaces = [{
 height = 0.322998
 radius = 0.334961
 
-[node name="Node3D" type="Node3D"]
+[node name="Bag Base" type="Node3D"]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
 script = ExtResource("1_ti2ln")
 Bag_Rotation = NodePath("Bag Mesh")

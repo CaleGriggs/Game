@@ -40,7 +40,7 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Head/CameraSmooth"]
 unique_name_in_owner = true
-cull_mask = 1048573
+cull_mask = 1048061
 fov = 90.0
 
 [node name="StairsAheadRayCast3D" type="RayCast3D" parent="."]

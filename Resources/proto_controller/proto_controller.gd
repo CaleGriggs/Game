@@ -48,9 +48,11 @@ func _unhandled_input(event):
 
 func _process(delta):
 	if Has_Bag:
-		print("Has bag: ", Bag_Node)
+		pass
+		
 	else:
-		print("Bagless")
+		pass
+		
 
 var _saved_camera_global_pos = null
 func _save_camera_pos_for_smoothing():

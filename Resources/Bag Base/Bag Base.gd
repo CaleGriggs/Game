@@ -10,10 +10,10 @@ extends Node3D
 
 @export var Team_Color: Color = Color(255,255,255)
 
-@export var Hidden : bool = false
-
 var Ring_Mesh = MeshInstance3D
 var Bag_Mesh = MeshInstance3D
+
+var Hidden : bool = false
 
 func _hide_bag() -> void:
 	if Hidden:
@@ -32,13 +32,14 @@ func _on_enter(Body: Node3D) -> void:
 		
 	#Scoring
 	if Body.Team_Color == Team_Color and Body.Has_Bag == true:
-		
-		#Body.Team.Score += 1
+		$"..".Team_Score += 1
 		Body.Bag_Node.Hidden = false
 		Body.Bag_Node._hide_bag()
 		Body.Has_Bag = false
 		Hidden = false
 		_hide_bag()
+		#print($"..".Team_Score)
+		
 
 func _ready():
 	Ring_Mesh = $"Ring Mesh"

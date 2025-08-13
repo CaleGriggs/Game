@@ -15,6 +15,14 @@ run/main_scene="uid://ba7cnx3j86gtk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameStateService="*res://addons/game_state_saver/game_state_service.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/game_state_saver/plugin.cfg")
+
 [input]
 
 Move_Left={
