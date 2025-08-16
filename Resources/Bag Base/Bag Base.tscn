@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://cc2cj3x7fayme"]
 
-[ext_resource type="Script" uid="uid://befnlplhq1bye" path="res://Resources/Bag Base/Bag Base_Spin.gd" id="1_l4q1t"]
+[ext_resource type="Script" uid="uid://befnlplhq1bye" path="res://Resources/Bag Base/Item_Spin.gd" id="1_l4q1t"]
 [ext_resource type="Script" uid="uid://d38hkggl0l72q" path="res://Resources/Bag Base/Bag Base.gd" id="1_ti2ln"]
 [ext_resource type="Script" uid="uid://crx4djm6rdryr" path="res://Resources/Bag Base/Bag Base_Ring.gd" id="2_8njam"]
 
@@ -42,7 +42,7 @@ height = 0.322998
 radius = 0.334961
 
 [node name="Bag Base" type="Node3D"]
-transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)
+transform = Transform3D(2.405, 0, 0, 0, 2.405, 0, 0, 0, 2.405, 0, 0, 0)
 script = ExtResource("1_ti2ln")
 Bag_Rotation = NodePath("Bag Mesh")
 Ring_Rotaion = NodePath("Ring Mesh")

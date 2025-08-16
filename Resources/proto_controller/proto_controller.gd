@@ -5,6 +5,9 @@ extends  CharacterBody3D
 @export var Has_Bag : bool = false
 @export var Bag_Node : Node3D
 
+@export var Health : float = 100.0
+@export var Armor : float = 0.0
+
 @export var look_sensitivity : float = 0.006 * 0.25
 
 #ground movement
@@ -30,6 +33,8 @@ var _snapped_to_stairs_last_frame := false
 var _last_fram_was_on_floor = -INF
 
 func _ready():
+	Team = $".."
+	Team_Color = Team.Team_Color
 	for child in %"World Model".find_children("*", "visualInstance3D"):
 		child.set_layer_maks_value(1, false)
 		child.set_layer_maks_value(2, true)
@@ -49,10 +54,8 @@ func _unhandled_input(event):
 func _process(delta):
 	if Has_Bag:
 		pass
-		
 	else:
 		pass
-		
 
 var _saved_camera_global_pos = null
 func _save_camera_pos_for_smoothing():

@@ -8,7 +8,7 @@ extends Node3D
 @export var Ring_Rotaion: NodePath
 @export var Area_Collision: NodePath
 
-@export var Team_Color: Color = Color(255,255,255)
+@export var Team_Color : Color
 
 var Ring_Mesh = MeshInstance3D
 var Bag_Mesh = MeshInstance3D
@@ -22,7 +22,9 @@ func _hide_bag() -> void:
 		Bag_Mesh.visible = true	
 
 func _on_enter(Body: Node3D) -> void:
-		
+	if Body.name == "Bullet" or Body is RigidBody3D:
+		print(Body.name)
+		return
 	#Taking
 	if Body.Team_Color != Team_Color and Body.Has_Bag == false:
 		Body.Has_Bag = true
@@ -32,7 +34,7 @@ func _on_enter(Body: Node3D) -> void:
 		
 	#Scoring
 	if Body.Team_Color == Team_Color and Body.Has_Bag == true:
-		$"..".Team_Score += 1
+		$".."._update_Score()
 		Body.Bag_Node.Hidden = false
 		Body.Bag_Node._hide_bag()
 		Body.Has_Bag = false
@@ -42,6 +44,7 @@ func _on_enter(Body: Node3D) -> void:
 		
 
 func _ready():
+	Team_Color = $"..".Team_Color
 	Ring_Mesh = $"Ring Mesh"
 	Bag_Mesh = $"Bag Mesh"
 	var Area = get_node(Area_Collision)

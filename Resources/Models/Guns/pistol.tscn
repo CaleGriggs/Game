@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv8rqsqu87kb5"]
+
+[ext_resource type="Script" uid="uid://fau0gas7lok5" path="res://Resources/Models/Guns/Gun.gd" id="1_nc8vl"]
+[ext_resource type="Script" uid="uid://de150thagphsg" path="res://Resources/Models/Guns/Pistol_Bullet_Spawn.gd" id="1_rkpnd"]
+[ext_resource type="PackedScene" uid="uid://b2b7k7dr2wq5k" path="res://Resources/Models/Bullet/Bullet.tscn" id="2_c3o4c"]
+
+[node name="Gun" type="Node3D" node_paths=PackedStringArray("Projectile", "fire_rate")]
+script = ExtResource("1_nc8vl")
+Projectile = NodePath("Projectile Spawn")
+fire_rate = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.178
+ignore_time_scale = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335317, 0)
+size = Vector3(0.339844, 0.0647583, 0.0605469)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.267457, -0.96357, 0, 0.96357, 0.267457, 0, 0, 0, 1, -0.111418, -0.0517201, 0)
+size = Vector3(0.196289, 0.0816193, 0.0605469)
+
+[node name="Projectile Spawn" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177065, 0.0467208, 0)
+script = ExtResource("1_rkpnd")
+Bullet_Scene = ExtResource("2_c3o4c")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Projectile Spawn"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0461056, 0, 0)
+visible = false
+light_color = Color(0.905851, 1.01556e-05, 0.290494, 1)
+light_energy = 6.806
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 17.3062
+spot_angle = 58.5045
+spot_angle_attenuation = 1.10957
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.825976, 0.270994, -1.06035)
+fov = 115.579
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

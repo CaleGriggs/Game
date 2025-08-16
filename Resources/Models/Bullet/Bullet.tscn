@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2b7k7dr2wq5k"]
+
+[ext_resource type="Script" uid="uid://0wd5al1njsba" path="res://Resources/Models/Bullet/Bullet.gd" id="1_4b0lr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v13ms"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afbyl"]
+albedo_color = Color(1, 1, 0, 1)
+metallic = 0.4
+metallic_specular = 0.83
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+rim_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eqffd"]
+material = SubResource("StandardMaterial3D_afbyl")
+radial_segments = 8
+rings = 2
+
+[node name="Bullet" type="RigidBody3D"]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+physics_interpolation_mode = 1
+input_ray_pickable = false
+mass = 0.285
+gravity_scale = 0.38
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_4b0lr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-9.61651e-10, -0.022, 0, 0.022, -9.61651e-10, 0, 0, 0, 0.022, 0.0220156, 0, 0)
+top_level = true
+shape = SubResource("CapsuleShape3D_v13ms")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-9.61651e-10, -0.022, 0, 0.022, -9.61651e-10, 0, 0, 0, 0.022, 0.022, 0, 0)
+mesh = SubResource("CapsuleMesh_eqffd")
+skeleton = NodePath("")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, 0, 0)
+light_color = Color(1, 0.843137, 0, 1)
+light_energy = 2.142
+shadow_enabled = true
+omni_range = 15.8349
