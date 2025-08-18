@@ -1,8 +1,10 @@
 extends Node
 
+
 var Bag_Path : Node 
 
 @export var Game_Time : Timer
+@export var started : bool = false
 
 @export var Score_Goal : int = 10
 @export var Winner : Node
@@ -19,7 +21,7 @@ var Bag_Path : Node
 
 var RandomNumber = RandomNumberGenerator.new()
 
-enum Team_Enums {RED, GREEN, BLUE, YELLOW}
+
 var Team_List : Array
 
 enum weapons_enums {WEAPON1, WEAPON2, WEAPON3, WEAPON4, WEAPON5, WEAPON6, WEAPON7, WEAPON8, WEAPON9}
@@ -50,7 +52,8 @@ func _end_match(Winner) -> void:
 	
 func _ready() -> void:
 	Team_List = [Red_Team, Green_Team, Blue_Team, Yellow_Team]
-	#Game_Time.start(30)
+	print("Get Ready")
+	Game_Time.start(5)
 
 func _process(delta: float) -> void:
 	pass
@@ -84,6 +87,12 @@ func _on_yellow_team_update_score() -> void:
 		_end_match(Winner)
 
 func _on_timer_timeout() -> void:
+	if not started:
+		print("Go!")
+		Game_Time.start(60)
+		started = true
+		return
+		
 	var Current_Score : int = 0
 	var temp : int = 0
 	for Team in Team_List:
