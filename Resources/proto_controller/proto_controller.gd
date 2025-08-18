@@ -1,12 +1,11 @@
 extends  CharacterBody3D
 
+@export var Controller : Node
+
 @export var Team : Node
 @export var Team_Color : Color
 @export var Has_Bag : bool = false
 @export var Bag_Node : Node3D
-
-@export var Health : float = 100.0
-@export var Armor : float = 0.0
 
 @export var look_sensitivity : float = 0.006 * 0.25
 
@@ -17,10 +16,8 @@ extends  CharacterBody3D
 @export var ground_decel := 10.0
 @export var ground_friction := 6.0
 
-func get_move_speed() -> float:
-	return sprint_speed if Input.is_action_pressed("Sprint") else walk_speed
-
 #air movement
+@export var sprint : bool = false
 @export var jump_velocity := 6.0
 @export var air_cap := get_move_speed()
 @export var air_accel := 800.0
@@ -33,29 +30,26 @@ var _snapped_to_stairs_last_frame := false
 var _last_fram_was_on_floor = -INF
 
 func _ready():
-	Team = $".."
-	Team_Color = Team.Team_Color
+	Controller = get_parent()
+	Team_Color = Controller.Team_Color
 	for child in %"World Model".find_children("*", "visualInstance3D"):
 		child.set_layer_maks_value(1, false)
 		child.set_layer_maks_value(2, true)
 	
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			rotate_y(-event.relative.x * look_sensitivity)
-			%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
-			%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+func _camera_move(event):
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * look_sensitivity)
+		%Camera3D.rotate_x(-event.relative.y * look_sensitivity)
+		%Camera3D.rotation.x = clamp(%Camera3D.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _process(delta):
-	if Has_Bag:
-		pass
-	else:
-		pass
+	pass
+
+func set_move_speed(sprint) -> void:
+	self.sprint = sprint
+
+func get_move_speed() -> float:
+	return sprint_speed if sprint else walk_speed
 
 var _saved_camera_global_pos = null
 func _save_camera_pos_for_smoothing():
@@ -149,13 +143,12 @@ func _handle_ground_physics(delta) -> void:
 
 func _physics_process(delta):
 	if is_on_floor(): _last_fram_was_on_floor = Engine.get_physics_frames()
-	
-	var input_dir = Input.get_vector("Move_Left","Move_Right","Move_Up","Move_Down").normalized()
-	
+	Controller._move()
+	var input_dir = Controller.Move_Dir
 	wish_dir = self.global_transform.basis * Vector3(input_dir.x, 0., input_dir.y)
-	
+	_slide_camera_smooth_back_to_origin(delta)
 	if is_on_floor() or _snapped_to_stairs_last_frame:
-		if Input.is_action_just_pressed("Jump"):
+		if Controller.Jump:
 			self.velocity.y = jump_velocity
 		_handle_ground_physics(delta)
 	else:
@@ -165,5 +158,8 @@ func _physics_process(delta):
 		move_and_slide()
 		_snap_down_to_stairs_check()
 	
-	_slide_camera_smooth_back_to_origin(delta)
+	
+func _on_health_death() -> void:
+	pass # Replace with function body.
+
 	

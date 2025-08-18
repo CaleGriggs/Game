@@ -19,6 +19,4 @@ func _fire_gun() -> void:
 	
 func _process(delta: float) -> void:
 	pass
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-	#	_fire_gun()
 	

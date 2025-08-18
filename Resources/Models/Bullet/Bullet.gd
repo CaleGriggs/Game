@@ -11,6 +11,7 @@ func _ready() -> void:
 	max_contacts_reported = 5
 	connect("body_entered", Callable(self,"_on_body_entered"))
 	pass
+	
 func _process(delta: float) -> void:
 	if linear_velocity.length() <= 5:
 		queue_free()

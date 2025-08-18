@@ -7,6 +7,9 @@ extends Node
 
 @export var Spawners : Array
 
+var Team_List : Array 
+var DeathPool : Array
+
 signal Update_Score
 
 func _update_Score() -> void:
@@ -20,8 +23,14 @@ Kills : int = all player kills combined
 Score : int = all team score combined
 """
 
+func _new_color(new_hue) -> void:
+	Team_Color = new_hue
+
 func _ready() -> void:
 	Team_Name = self.name
 	for Spawner in $"Spawns/".get_children():
 		Spawners.append(Spawner)
+		
+func _enter_limbo(Player):
 	
+	pass

@@ -23,8 +23,10 @@ func _hide_bag() -> void:
 
 func _on_enter(Body: Node3D) -> void:
 	if Body.name == "Bullet" or Body is RigidBody3D:
-		print(Body.name)
 		return
+	if Body.name == "Input":
+		Body = Body.get_child(0)
+		
 	#Taking
 	if Body.Team_Color != Team_Color and Body.Has_Bag == false:
 		Body.Has_Bag = true
@@ -42,7 +44,6 @@ func _on_enter(Body: Node3D) -> void:
 		_hide_bag()
 		#print($"..".Team_Score)
 		
-
 func _ready():
 	Team_Color = $"..".Team_Color
 	Ring_Mesh = $"Ring Mesh"
@@ -55,13 +56,13 @@ func _ready():
 	if Bag_Material == null:
 		Bag_Material = StandardMaterial3D.new()
 		Bag_Mesh.set_surface_override_material(0, Bag_Material)
-	Bag_Material.albedo_color = Team_Color
+	Bag_Material.albedo_color = Color(Team_Color)
 	
 	var Ring_Material = Ring_Mesh.get_surface_override_material(0)
 	if Ring_Material == null:
 		Ring_Material = StandardMaterial3D.new()
 		Ring_Mesh.set_surface_override_material(0, Ring_Material)
-	Ring_Material.albedo_color = Team_Color
+	Ring_Material.albedo_color = Color(Team_Color)
 	
 	var child = get_node(Bag_Rotation)
 	if child:

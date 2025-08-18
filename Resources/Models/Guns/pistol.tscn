@@ -10,7 +10,6 @@ Projectile = NodePath("Projectile Spawn")
 fire_rate = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.178
 ignore_time_scale = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
